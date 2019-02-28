@@ -42,7 +42,7 @@ public class PropertyFixer {
         Path path1 = Paths.get(dir);
 
         try (Stream<Path> entries = Files.find(path1, Integer.MAX_VALUE, (path, attrs) -> path.toString().endsWith(".java"))) {
-            entries.forEach(path -> {
+            entries.parallel().forEach(path -> {
                 try {
                     String content = new String(Files.readAllBytes(path));
 
