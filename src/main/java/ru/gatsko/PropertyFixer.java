@@ -18,6 +18,13 @@ public class PropertyFixer {
         return k.toLowerCase().replaceAll("_", ".");
     }
 
+    private static String replaceKey(String content, String key) {
+        Pattern p = Pattern.compile(key + "\\b");
+        Matcher m = p.matcher(content);
+        content = m.replaceAll(fixKey(key));
+        return content;
+    }
+
     //reads property files, search and save keys and replace them by calling fixKey method
     private static void fixProperty(String path) {
         Path propertyPath = Paths.get(path);
@@ -28,10 +35,7 @@ public class PropertyFixer {
             for (String line; (line = reader.readLine()) != null;) {
                 String key = line.split("=")[0].trim();
                 keys.add(key);
-                String token = fixKey(key);
-                Pattern p = Pattern.compile(key + "\\b");
-                Matcher m = p.matcher(content);
-                content = m.replaceAll(token);
+                content = replaceKey(content, key);
             }
 
             Files.write(propertyPath, content.getBytes());
@@ -51,9 +55,7 @@ public class PropertyFixer {
                     String content = new String(Files.readAllBytes(path));
 
                     for (String key : keys) {
-                        Pattern p = Pattern.compile(key + "\\b");
-                        Matcher m = p.matcher(content);
-                        content = m.replaceAll(fixKey(key));
+                        content = replaceKey(content, key);
                     }
 
                     Files.write(path, content.getBytes());
