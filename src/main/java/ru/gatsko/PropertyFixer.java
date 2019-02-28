@@ -15,7 +15,7 @@ public class PropertyFixer {
 
     //translates keys to lowercase with dot-separator
     private static String fixKey(String k) {
-        return k.toUpperCase().replaceAll("_", ".");
+        return k.toLowerCase().replaceAll("_", ".");
     }
 
     //reads property files, search and save keys and replace them by calling fixKey method

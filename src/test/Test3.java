@@ -1,7 +1,7 @@
 package test;
 
 public class Test3 {
-    String str = "create.offlineuser.error";
-    String str1 = "create.offlineuser.error_2";
-    String str2 = "create.offlineuser.error_3";
+    String str = "CREATE_OFFLINEUSER_ERROR";
+    String str1 = "CREATE_OFFLINEUSER_ERROR_2";
+    String str2 = "CREATE_OFFLINEUSER_ERROR_3";
 }
