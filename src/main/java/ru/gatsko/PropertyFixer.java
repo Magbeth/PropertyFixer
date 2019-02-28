@@ -6,6 +6,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class PropertyFixer {
@@ -13,7 +15,7 @@ public class PropertyFixer {
 
     //translates keys to lowercase with dot-separator
     private static String fixKey(String k) {
-        return k.toLowerCase().replaceAll("_", ".");
+        return k.toUpperCase().replaceAll("_", ".");
     }
 
     //reads property files, search and save keys and replace them by calling fixKey method
@@ -27,7 +29,9 @@ public class PropertyFixer {
                 String key = line.split("=")[0].trim();
                 keys.add(key);
                 String token = fixKey(key);
-                content = content.replaceAll(key, token);
+                Pattern p = Pattern.compile(key + "\\b");
+                Matcher m = p.matcher(content);
+                content = m.replaceAll(token);
             }
 
             Files.write(propertyPath, content.getBytes());
@@ -47,7 +51,9 @@ public class PropertyFixer {
                     String content = new String(Files.readAllBytes(path));
 
                     for (String key : keys) {
-                        content = content.replaceAll(key, fixKey(key));
+                        Pattern p = Pattern.compile(key + "\\b");
+                        Matcher m = p.matcher(content);
+                        content = m.replaceAll(fixKey(key));
                     }
 
                     Files.write(path, content.getBytes());
