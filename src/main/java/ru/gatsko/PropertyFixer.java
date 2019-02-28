@@ -11,6 +11,7 @@ import java.util.stream.Stream;
 public class PropertyFixer {
     private static List<String> keys = new ArrayList<>();
 
+    //translates keys to lowercase with dot-separator
     private static String fixKey(String k) {
         return k.toLowerCase().replaceAll("_", ".");
     }
@@ -59,6 +60,7 @@ public class PropertyFixer {
         }
     }
 
+    //one-click fix property file and java-files
     public static void fix(String propertyPath, String filesDirPath) {
         fixProperty(propertyPath);
 
