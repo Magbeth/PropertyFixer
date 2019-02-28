@@ -1,13 +1,1 @@
-CREATE_OFFLINEUSER_ERROR = User ID, Password and Online Password can not be empty. While creating Offline User
-CREATE_OFFLINEUSER_ERROR = User ID, Password and Online Password can not be empty. While creating Offline User
-CREATE_OFFLINEUSER_ERROR = User ID, Password and Online Password can not be empty. While creating Offline User
-
-CREATE_OFFLINEUSER_ERROR = User ID, Password and Online Password can not be empty. While creating Offline User
-CREATE_OFFLINEUSER_ERROR = User ID, Password and Online Password can not be empty. While creating Offline User
-CREATE_OFFLINEUSER_ERROR = User ID, Password and Online Password can not be empty. While creating Offline User
-CREATE_OFFLINEUSER_ERROR = User ID, Password and Online Password can not be empty. While creating Offline User
-CREATE_OFFLINEUSER_ERROR = User ID, Password and Online Password can not be empty. While creating Offline User
-CREATE_OFFLINEUSER_ERROR = User ID, Password and Online Password can not be empty. While creating Offline User
-
-CREATE_OFFLINEUSER_ERROR_2 = Blahblahblahblah
-CREATE_OFFLINEUSER_ERROR_3 = Blahblahblahblah
+create.offlineuser.error = User ID, Password and Online Password can not be empty. While creating Offline User
