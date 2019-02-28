@@ -67,10 +67,11 @@ public class PropertyFixer {
     }
 
     //one-click fix property file and java-files
-    public static void fix(String propertyPath, String filesDirPath) {
+    public static void fix(String propertyPath, String...filesDirPath) {
         fixProperty(propertyPath);
-
-        fixFiles(filesDirPath);
+        for(String path : filesDirPath) {
+            fixFiles(path);
+        }
     }
 
     public static void main(String[] args) {
